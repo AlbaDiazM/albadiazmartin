@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alba DMar — Pintura Artística | Arte en Las Palmas de Gran Canaria</title>
+<meta name="description" content="Galería de obras de arte de Alba Díaz Martín. Pinturas originales, láminas y NFTs. Para comprar, contacta por correo electrónico.">
+<meta property="og:title" content="Alba DMar — Pintura Artística">
+<meta property="og:description" content="Galería de obras originales y láminas de la artista Alba Díaz Martín.">
+<meta property="og:image" content="https://albadiazmartin.com/img/hero.jpg">
+<meta property="og:locale" content="es_ES">
+<style>
+  :root{
+    --tinta:#1c1a17; --papel:#faf8f4; --acento:#b3752e; --gris:#6f6a62; --linea:#e5e0d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--papel);color:var(--tinta);line-height:1.6}
+  a{color:var(--acento)}
+  img{display:block;max-width:100%}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--linea)}
+  .barra{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .logo{font-size:1.5rem;letter-spacing:.12em;text-decoration:none;color:var(--tinta)}
+  .logo span{color:var(--acento)}
+  nav{display:flex;gap:18px;flex-wrap:wrap}
+  nav a{text-decoration:none;color:var(--tinta);font-size:.95rem;letter-spacing:.05em}
+  nav a:hover{color:var(--acento)}
+
+  .hero{position:relative;max-height:72vh;overflow:hidden}
+  .hero img{width:100%;height:72vh;object-fit:cover;object-position:center 30%}
+  .hero .velo{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,26,23,.75),rgba(28,26,23,.05))}
+  .hero .texto{position:absolute;left:0;right:0;bottom:0;padding:40px 20px;text-align:center;color:#fff}
+  .hero h1{font-size:clamp(1.6rem,4.5vw,3rem);font-weight:normal;letter-spacing:.06em}
+  .hero p{margin-top:10px;font-size:1.05rem;opacity:.92}
+  .hero .aviso{display:inline-block;margin-top:18px;background:var(--acento);color:#fff;padding:10px 22px;border-radius:999px;text-decoration:none;font-size:.95rem}
+
+  section{max-width:1200px;margin:0 auto;padding:70px 20px 20px}
+  h2{font-weight:normal;font-size:2rem;letter-spacing:.08em;text-align:center}
+  .sub{color:var(--gris);text-align:center;max-width:640px;margin:12px auto 40px;font-size:1rem}
+
+  .galeria{columns:3 300px;column-gap:22px}
+  .obra{break-inside:avoid;margin-bottom:22px;background:#fff;border:1px solid var(--linea);border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(28,26,23,.06)}
+  .obra button.ver{all:unset;cursor:zoom-in;display:block;width:100%}
+  .obra img{width:100%;transition:transform .4s ease}
+  .obra:hover img{transform:scale(1.02)}
+  .ficha{padding:14px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .ficha .nombre{font-size:1.02rem}
+  .ficha .precio{color:var(--gris);font-size:.92rem}
+  .vendida{display:inline-block;font-size:.75rem;letter-spacing:.08em;color:#fff;background:#a33;border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+  .comprar{background:var(--tinta);color:#fff;text-decoration:none;font-size:.85rem;padding:8px 14px;border-radius:4px;white-space:nowrap}
+  .comprar:hover{background:var(--acento)}
+
+  .nfts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto}
+  .nft{background:#fff;border:1px solid var(--linea);border-radius:6px;overflow:hidden;text-align:center}
+  .nft img{width:100%;aspect-ratio:1;object-fit:cover}
+  .nft .cuerpo{padding:18px}
+  .nft a.btn{display:inline-block;margin-top:10px;background:var(--tinta);color:#fff;text-decoration:none;padding:9px 18px;border-radius:4px;font-size:.9rem}
+  .nft a.btn:hover{background:var(--acento)}
+
+  .sobre{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .sobre img{border-radius:6px;border:1px solid var(--linea);position:sticky;top:90px}
+  .sobre p{margin-bottom:16px;text-align:justify}
+  @media(max-width:820px){.sobre{grid-template-columns:1fr}.sobre img{position:static}}
+
+  .contacto{text-align:center;padding-bottom:60px}
+  .correo{font-size:clamp(1.1rem,3vw,1.6rem);display:inline-block;margin:18px 0}
+  .redes{display:flex;gap:22px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .redes a{text-decoration:none}
+
+  footer{border-top:1px solid var(--linea);text-align:center;padding:26px 20px;color:var(--gris);font-size:.85rem}
+
+  .lightbox{position:fixed;inset:0;z-index:100;background:rgba(20,18,15,.93);display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px}
+  .lightbox.abierta{display:flex}
+  .lightbox img{max-width:92vw;max-height:76vh;object-fit:contain;border-radius:4px}
+  .lightbox .pie{color:#fff;text-align:center;margin-top:14px}
+  .lightbox .pie .comprar{display:inline-block;margin-top:10px}
+  .lightbox .cerrar{position:absolute;top:14px;right:20px;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer;line-height:1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="barra">
+    <a class="logo" href="#">ALBA <span>DMAR</span></a>
+    <nav>
+      <a href="#obras">Obras originales</a>
+      <a href="#laminas">Láminas</a>
+      <a href="#nfts">NFTs</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="img/hero.jpg" data-alt="https://www.albadiazmartin.com/wp-content/uploads/2022/07/Design-3-2-scaled.jpg" alt="Pintura de Alba DMar">
+  <div class="velo"></div>
+  <div class="texto">
+    <h1>Pintura artística de Alba Díaz Martín</h1>
+    <p>Obras originales y láminas · Las Palmas de Gran Canaria</p>
+    <a class="aviso" href="#contacto">¿Quieres comprar una obra? Escríbeme ✉</a>
+  </div>
+</div>
+
+<section id="obras">
+  <h2>OBRAS ORIGINALES</h2>
+  <p class="sub">Piezas únicas pintadas a mano. Si te interesa alguna, escríbeme y te contaré todos los detalles: medidas, técnica y envío.</p>
+  <div class="galeria" id="galeria-obras"></div>
+</section>
+
+<section id="laminas">
+  <h2>LÁMINAS</h2>
+  <p class="sub">Impresiones de alta calidad disponibles en tamaños A5 (14,8×21 cm), A4 (21×29,7 cm) y A3 (29,7×42 cm). Pídemelas por correo indicando el tamaño.</p>
+  <div class="galeria" id="galeria-laminas"></div>
+</section>
+
+<section id="nfts">
+  <h2>NFTs</h2>
+  <p class="sub">El arte se encuentra con la tecnología: descubre y colecciona mis creaciones digitales en OpenSea.</p>
+  <div class="nfts">
+    <div class="nft">
+      <img src="img/nft-empowered.jpg" data-alt="https://www.albadiazmartin.com/wp-content/uploads/2023/11/Ilustracio%CC%81n_sin_ti%CC%81tulo-4-1.jpg" alt="Colección Empowered Women">
+      <div class="cuerpo">
+        <div>Colección <strong>EMPOWERED WOMEN</strong></div>
+        <a class="btn" href="https://opensea.io/collection/empowered-women-5/" target="_blank" rel="noopener">Ver en OpenSea</a>
+      </div>
+    </div>
+    <div class="nft">
+      <img src="img/nft-brushed.jpg" data-alt="https://www.albadiazmartin.com/wp-content/uploads/2023/11/Ilustracio%CC%81n_sin_ti%CC%81tulo-8.jpg" alt="Colección Brushed Portraits">
+      <div class="cuerpo">
+        <div>Colección <strong>BRUSHED PORTRAITS</strong></div>
+        <a class="btn" href="https://opensea.io/collection/brushed-portraits" target="_blank" rel="noopener">Ver en OpenSea</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <h2>SOBRE MÍ</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="sobre">
+    <div>
+      <p>Hola, soy Alba Díaz Martín, una artista nacida en Madrid pero enamorada de las Islas Canarias, donde actualmente resido. Desde que tengo memoria, sostener un lápiz en mis manos ha sido sinónimo de exploración y expresión. La pasión por el arte ha sido mi compañera más fiel, guiándome en un viaje interminable de descubrimiento a través de colores y formas.</p>
+      <p>Mi fascinación por explorar cada rincón del mundo me ha llevado a buscar la belleza en todas sus manifestaciones: en los lugares más remotos, en las sonrisas de las personas que encuentro y en las experiencias que atesoro en mi corazón. Siempre he creído que el arte es una ventana hacia el alma del mundo, una manera de conectar con las emociones más profundas y con los misterios que nos rodean.</p>
+      <p>Aunque mi pasión por el arte es innegable, mi curiosidad también me llevó por caminos aparentemente dispares. Decidí embarcarme en la aventura de los estudios de física teórica y astrofísica, una elección que algunos consideraron inusual pero que para mí fue un intento de comprender las complejidades del universo de una manera diferente. La radiofísica se cruzó en mi camino y encontré una forma de aplicar mis conocimientos en un campo completamente distinto: los tratamientos para pacientes con cáncer mediante radiaciones. Cada sesión de tratamiento es una oportunidad para combinar ciencia y compasión, un recordatorio constante de la importancia de explorar y cuidar, tanto en el lienzo como en la vida real.</p>
+      <p>En mis pinturas, al igual que en mi vida, la exploración es la clave. Me niego a encasillarme en un estilo o técnica específicos; en su lugar, me sumerjo en la diversidad que el mundo del arte ofrece. Desde trazos sueltos y expresionistas que capturan emociones crudas, hasta paisajes meticulosamente detallados que reflejan la calma de la naturaleza.</p>
+      <p>Te invito a que descubras mi visión del mundo a través de mis pinturas, donde cada trazo es un destello de mi alma exploradora y cada color es un reflejo de las emociones que han coloreado mi viaje.</p>
+      <p><strong>Y si quieres conocer aún más sobre mí, echa un ojo a todos mis proyectos en <a href="http://linktr.ee/albadmar" target="_blank" rel="noopener">Linktree</a>.</strong></p>
+    </div>
+    <img src="img/alba.jpg" data-alt="https://www.albadiazmartin.com/wp-content/uploads/2022/07/Whitagram-Image-4-1024x1024.jpg" alt="Alba Díaz Martín">
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <h2>CONTACTO</h2>
+  <p class="sub">¿Te interesa una obra o una lámina? Escríbeme y te responderé lo antes posible con precio, medidas y opciones de envío.</p>
+  <a class="correo" href="mailto:alba.diaz.martin@gmail.com">alba.diaz.martin@gmail.com</a>
+  <div class="redes">
+    <a href="https://www.instagram.com/albadmar.art/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=100035393006394" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://twitter.com/albadmar_art" target="_blank" rel="noopener">Twitter / X</a>
+    <a href="http://linktr.ee/albadmar" target="_blank" rel="noopener">Linktree</a>
+  </div>
+</section>
+
+<footer>© Alba DMar · albadiazmartin.com</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="cerrar" onclick="cerrarLightbox()" aria-label="Cerrar">×</button>
+  <img id="lb-img" src="" alt="">
+  <div class="pie">
+    <div id="lb-titulo" style="font-size:1.2rem"></div>
+    <div id="lb-precio" style="opacity:.8"></div>
+    <a id="lb-comprar" class="comprar" href="#">Comprar por correo ✉</a>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CATÁLOGO — Para cambiar precios o quitar obras, edita aquí.
+   nombre: título de la obra
+   precio: texto que se muestra
+   img: archivo local en la carpeta img/
+   remoto: copia de seguridad en la web antigua (se usa si falta la local)
+   vendida: true para mostrar la etiqueta VENDIDA (solo obras)
+   ============================================================ */
+const CORREO = "alba.diaz.martin@gmail.com";
+const ANTIGUA = "https://www.albadiazmartin.com/wp-content/uploads/";
+
+const OBRAS = [
+  {nombre:"Rita Hayworth", precio:"800 €", img:"rita-hayworth.jpg", remoto:"2023/08/4-scaled.jpg"},
+  {nombre:"Silence", precio:"700 €", img:"silence.jpg", remoto:"2022/07/bunsen2-scaled.jpg"},
+  {nombre:"Freddy Mercury", precio:"700 €", img:"freddy-mercury.jpg", remoto:"2022/07/Design-1-1-scaled.jpg"},
+  {nombre:"Girl with a rose", precio:"700 €", img:"girl-with-a-rose.jpg", remoto:"2022/07/Sold-Girl-with-rose-scaled.jpg", vendida:true},
+  {nombre:"John Lennon", precio:"600 €", img:"john-lennon.jpg", remoto:"2022/07/Design-2-1-scaled.jpg"},
+  {nombre:"Daydreaming", precio:"600 €", img:"daydreaming.jpg", remoto:"2023/08/IMG_9490.jpg"},
+  {nombre:"Espalda desnuda", precio:"500 €", img:"espalda-desnuda.jpg", remoto:"2023/08/FF342218-95C1-4C71-A498-7A5B93008964.jpg", vendida:true},
+  {nombre:"Panther", precio:"500 €", img:"panther.jpg", remoto:"2022/07/tiger-2-scaled.jpg"},
+  {nombre:"Marilyn", precio:"500 €", img:"marilyn.jpg", remoto:"2023/08/370B80F0-1EA2-4BD6-8BCD-89A74F927980-2.jpg", vendida:true},
+  {nombre:"Abstract #1 Serie1", precio:"450 €", img:"abstract-1.jpg", remoto:"2023/08/IMG_3697-scaled.jpg"},
+  {nombre:"Abstract #2 Serie1", precio:"450 €", img:"abstract-2.jpg", remoto:"2023/08/IMG_3698-scaled.jpg"},
+  {nombre:"Couple", precio:"400 €", img:"couple.jpg", remoto:"2022/07/couple2-scaled.jpg"},
+  {nombre:"Admiring the moon", precio:"400 €", img:"admiring-the-moon.jpg", remoto:"2023/08/IMG_4636-2-scaled.jpg"},
+  {nombre:"Lauryn Hill", precio:"375 €", img:"lauryn-hill.jpg", remoto:"2022/07/Lauryn-2-scaled.jpg"},
+  {nombre:"Dalí", precio:"300 €", img:"dali.jpg", remoto:"2022/07/Design-4-1-scaled.jpg"},
+  {nombre:"Liz Taylor", precio:"300 €", img:"liz-taylor.jpg", remoto:"2022/07/liz-scaled.jpg"},
+  {nombre:"Audrey Hepburn", precio:"300 €", img:"audrey-hepburn.jpg", remoto:"2023/08/IMG_7089.jpg"}
+];
+
+const LAMINAS = [
+  {nombre:"Lámina «Picasso»", precio:"20 – 40 € según tamaño", img:"picasso.jpg", remoto:"2022/07/picasso-2-scaled.jpg"},
+  {nombre:"Lámina «Panther»", precio:"20 – 40 € según tamaño", img:"panther.jpg", remoto:"2022/07/tiger-2-scaled.jpg"},
+  {nombre:"Lámina «Couple»", precio:"20 – 40 € según tamaño", img:"couple.jpg", remoto:"2022/07/couple2-scaled.jpg"},
+  {nombre:"Lámina «Dalí»", precio:"20 – 40 € según tamaño", img:"dali.jpg", remoto:"2022/07/Design-4-1-scaled.jpg"},
+  {nombre:"Lámina «No speak»", precio:"20 – 40 € según tamaño", img:"silence.jpg", remoto:"2022/07/bunsen2-scaled.jpg"},
+  {nombre:"Lámina «Girl with a rose»", precio:"20 – 40 € según tamaño", img:"girl-rose-lamina.jpg", remoto:"2022/07/Design-3-1-scaled.jpg"},
+  {nombre:"Lámina «Lauryn Hill»", precio:"20 – 40 € según tamaño", img:"lauryn-hill.jpg", remoto:"2022/07/Lauryn-2-scaled.jpg"},
+  {nombre:"Lámina «John Lennon»", precio:"20 – 40 € según tamaño", img:"john-lennon.jpg", remoto:"2022/07/Design-2-1-scaled.jpg"},
+  {nombre:"Lámina «Freddy Mercury»", precio:"20 – 40 € según tamaño", img:"freddy-mercury.jpg", remoto:"2022/07/Design-1-1-scaled.jpg"},
+  {nombre:"Lámina «David»", precio:"20 – 40 € según tamaño", img:"david.jpg", remoto:"2023/08/Ilustracio%CC%81n_sin_ti%CC%81tulo-23.jpg"},
+  {nombre:"Lámina «Elephant»", precio:"20 – 40 € según tamaño", img:"elephant.jpg", remoto:"2023/08/IMG_3274-1-scaled.jpg"},
+  {nombre:"Lámina «Van Gogh»", precio:"20 – 40 € según tamaño", img:"van-gogh.jpg", remoto:"2023/08/IMG_5473-scaled.jpg"},
+  {nombre:"Lámina «Camaleon»", precio:"20 – 30 € según tamaño", img:"camaleon.jpg", remoto:"2023/08/IMG_3267-scaled.jpg"},
+  {nombre:"Lámina «Dragon Fly»", precio:"15 – 30 € según tamaño", img:"dragon-fly.jpg", remoto:"2022/07/libelula3.jpg"},
+  {nombre:"Lámina «Liz Taylor»", precio:"20 – 40 € según tamaño", img:"liz-taylor.jpg", remoto:"2022/07/liz-scaled.jpg"},
+  {nombre:"Lámina «Time»", precio:"15 – 30 € según tamaño", img:"time.jpg", remoto:"2023/08/IMG_3704.jpg"},
+  {nombre:"Lámina «Natural #3»", precio:"20 – 40 € según tamaño", img:"natural-3.jpg", remoto:"2022/07/Floral-3-1-scaled.jpg"},
+  {nombre:"Lámina «Natural #2»", precio:"20 – 40 € según tamaño", img:"natural-2.jpg", remoto:"2022/07/Floral-2-1-scaled.jpg"},
+  {nombre:"Lámina «Natural #1»", precio:"20 – 40 € según tamaño", img:"natural-1.jpg", remoto:"2022/07/Design-Floral1-2.jpg"}
+];
+
+function mailto(item, esLamina){
+  const asunto = encodeURIComponent("Quiero comprar: " + item.nombre.replace(/[«»]/g,'"'));
+  const cuerpo = encodeURIComponent(
+    "Hola Alba:\n\nMe interesa " + (esLamina ? "la " : "la obra ") + item.nombre.replace(/[«»]/g,'"') +
+    (esLamina ? "\nTamaño deseado (A5 / A4 / A3): " : "") +
+    "\n\n¿Me puedes dar más información sobre precio final y envío?\n\nGracias."
+  );
+  return "mailto:" + CORREO + "?subject=" + asunto + "&body=" + cuerpo;
+}
+
+function tarjeta(item, esLamina){
+  const remoto = ANTIGUA + item.remoto;
+  const etiqueta = item.vendida ? ' <span class="vendida">VENDIDA</span>' : '';
+  const boton = item.vendida ? '' : '<a class="comprar" href="' + mailto(item, esLamina) + '">Comprar ✉</a>';
+  return '<figure class="obra">' +
+    '<button class="ver" onclick=\'abrirLightbox(' + JSON.stringify(JSON.stringify({...item, esLamina})) + ')\'>' +
+    '<img loading="lazy" src="img/' + item.img + '" data-alt="' + remoto + '" alt="' + item.nombre + '">' +
+    '</button>' +
+    '<figcaption class="ficha"><div><div class="nombre">' + item.nombre + etiqueta + '</div>' +
+    '<div class="precio">' + item.precio + '</div></div>' + boton + '</figcaption></figure>';
+}
+
+document.getElementById("galeria-obras").innerHTML = OBRAS.map(o => tarjeta(o,false)).join("");
+document.getElementById("galeria-laminas").innerHTML = LAMINAS.map(l => tarjeta(l,true)).join("");
+
+/* Si falta la imagen local, usa la copia de la web antigua */
+document.querySelectorAll("img[data-alt]").forEach(im => {
+  im.addEventListener("error", function f(){ im.removeEventListener("error", f); im.src = im.dataset.alt; });
+});
+
+function abrirLightbox(json){
+  const item = JSON.parse(json);
+  const lb = document.getElementById("lightbox");
+  const img = document.getElementById("lb-img");
+  img.src = "img/" + item.img;
+  img.onerror = () => { img.onerror = null; img.src = ANTIGUA + item.remoto; };
+  document.getElementById("lb-titulo").textContent = item.nombre;
+  document.getElementById("lb-precio").textContent = item.precio + (item.vendida ? " · VENDIDA" : "");
+  const btn = document.getElementById("lb-comprar");
+  if(item.vendida){ btn.style.display = "none"; } else { btn.style.display = "inline-block"; btn.href = mailto(item, item.esLamina); }
+  lb.classList.add("abierta");
+  document.body.style.overflow = "hidden";
+}
+function cerrarLightbox(){
+  document.getElementById("lightbox").classList.remove("abierta");
+  document.body.style.overflow = "";
+}
+document.getElementById("lightbox").addEventListener("click", e => { if(e.target.id === "lightbox") cerrarLightbox(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarLightbox(); });
+</script>
+</body>
+</html>
