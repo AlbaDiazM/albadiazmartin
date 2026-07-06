@@ -75,6 +75,15 @@
   .lightbox .pie{color:#fff;text-align:center;margin-top:14px}
   .lightbox .pie .comprar{display:inline-block;margin-top:10px}
   .lightbox .cerrar{position:absolute;top:14px;right:20px;font-size:2rem;color:#fff;background:none;border:none;cursor:pointer;line-height:1}
+
+  /* ---- Apps y proyectos ---- */
+  .proyectos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto}
+  .proyecto{background:#fff;border:1px solid var(--linea);border-radius:6px;overflow:hidden;text-align:center;display:flex;flex-direction:column}
+  .proyecto .pro-img{height:150px;display:flex;align-items:center;justify-content:center;padding:24px;background:#fdfcf9;border-bottom:1px solid var(--linea)}
+  .proyecto .pro-img img{max-height:100%;max-width:80%;object-fit:contain}
+  .proyecto .cuerpo{padding:18px 20px 24px;display:flex;flex-direction:column;gap:10px;flex-grow:1}
+  .proyecto .cuerpo p{color:var(--gris);font-size:.95rem;flex-grow:1;margin:0}
+  .proyecto strong{letter-spacing:.06em}
 </style>
 </head>
 <body>
@@ -86,6 +95,7 @@
       <a href="#obras">Obras originales</a>
       <a href="#laminas">Láminas</a>
       <a href="#nfts">NFTs</a>
+      <a href="#proyectos">Apps</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -130,6 +140,38 @@
       <div class="cuerpo">
         <div>Colección <strong>BRUSHED PORTRAITS</strong></div>
         <a class="btn" href="https://opensea.io/collection/brushed-portraits" target="_blank" rel="noopener">Ver en OpenSea</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPS Y PROYECTOS ================= -->
+<section id="proyectos">
+  <h2>APPS &amp; PROYECTOS</h2>
+  <p class="sub">Más allá del lienzo: aplicaciones y libros que he creado con el mismo cariño que mis cuadros.</p>
+  <div class="proyectos">
+    <div class="proyecto">
+      <div class="pro-img"><img src="kaibloom/logo.png" alt="KaiBloom Publishing"></div>
+      <div class="cuerpo">
+        <div><strong>KAIBLOOM PUBLISHING</strong></div>
+        <p>Libros para colorear llenos de calma, imaginación y detalles tiernos, disponibles en Amazon.</p>
+        <a class="btn" href="kaibloom/">Descubrir KaiBloom</a>
+      </div>
+    </div>
+    <div class="proyecto">
+      <div class="pro-img"><img src="blocks3dpuzzle/wp-content/uploads/2021/06/cropped-TituloPuzzle3D-1.png" alt="Blocks 3D Puzzle"></div>
+      <div class="cuerpo">
+        <div><strong>BLOCKS 3D PUZZLE</strong></div>
+        <p>El auténtico puzzle 3D para móvil: 350 niveles de dificultad creciente para entrenar la mente.</p>
+        <a class="btn" href="blocks3dpuzzle/">Ver el juego</a>
+      </div>
+    </div>
+    <div class="proyecto">
+      <div class="pro-img"><img src="https://play-lh.googleusercontent.com/AvC_bs-Zj7iAGQ6vpN_y5oThkdr2ASFF3_yPc7NFtdQX2fxYkFURnePEdktV5fDX8FijPa49PU5LuAmFz7hS=w192" alt="Radiobiology Plus"></div>
+      <div class="cuerpo">
+        <div><strong>RADIOBIOLOGY PLUS</strong></div>
+        <p>Cálculo de dosis biológica equivalente (BED) para profesionales de la radioterapia. En Google Play.</p>
+        <a class="btn" href="radiobiologyplus/">Ver la app</a>
       </div>
     </div>
   </div>
